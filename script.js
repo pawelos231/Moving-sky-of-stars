@@ -44,7 +44,7 @@ const material = new THREE.PointsMaterial({
   color: "#0000ff",
 });
 var arrOfParticles = [];
-Array(1300)
+Array(1500)
   .fill()
   .forEach((item) => {
     arrOfParticles.push(addParticle());
@@ -94,7 +94,7 @@ const bloomPass = new UnrealBloomPass(
   0.85
 );
 bloomPass.threshold = 0.5;
-bloomPass.strength = 5; //intensity of glow
+bloomPass.strength = 7; //intensity of glow
 bloomPass.radius = 0.5;
 const bloomComposer = new EffectComposer(renderer);
 bloomComposer.setSize(window.innerWidth, window.innerHeight);
@@ -111,7 +111,7 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   arrOfParticles.forEach((item, i) => {
-    item.Particle.position.z = item.Particle.position.z + 0.3055;
+    item.Particle.position.z = item.Particle.position.z + 0.1855;
     item.material.emissive.r = 1 * Math.abs(item.Particle.position.z);
     item.material.emissive.g = 3.86 * Math.abs(1 / item.Particle.position.z);
     item.material.emissive.b = 3.86 * Math.abs(1 / item.Particle.position.z);
