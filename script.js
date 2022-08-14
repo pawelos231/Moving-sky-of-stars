@@ -19,7 +19,7 @@ let Particle;
 function addParticle() {
   let [x, y, z] = Array(3)
     .fill()
-    .map(() => THREE.MathUtils.randFloat(-200, 200));
+    .map(() => THREE.MathUtils.randFloat(-100, 80));
 
   let geometry = new THREE.SphereGeometry(0.05, 24, 24);
   let material = new THREE.MeshStandardMaterial({
@@ -44,7 +44,7 @@ const material = new THREE.PointsMaterial({
   color: "#0000ff",
 });
 var arrOfParticles = [];
-Array(3000)
+Array(1300)
   .fill()
   .forEach((item) => {
     arrOfParticles.push(addParticle());
@@ -111,10 +111,10 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   arrOfParticles.forEach((item, i) => {
-    item.Particle.position.z = item.Particle.position.z + 0.5055;
+    item.Particle.position.z = item.Particle.position.z + 0.3055;
     item.material.emissive.r = 1 * Math.abs(item.Particle.position.z);
-    item.material.emissive.g = 6.66 * Math.abs(1 / item.Particle.position.z);
-    item.material.emissive.b = 6.66 * Math.abs(1 / item.Particle.position.z);
+    item.material.emissive.g = 3.86 * Math.abs(1 / item.Particle.position.z);
+    item.material.emissive.b = 3.86 * Math.abs(1 / item.Particle.position.z);
     if (item.Particle.position.z > 1.5) {
       item.Particle.geometry.dispose();
       item.Particle.material.dispose();
